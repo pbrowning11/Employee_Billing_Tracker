@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <title>Employee Tracker</title>
+</head>
+
+<body>
+    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+
+    <div class="container">
+        <div class="jumbotron text-center bg-dark text-white">
+            <h1 class="display-4">Employee Data Management</h1>
+            <p class="lead">A Comprehensive Directory of Employee Billable Hours</p>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr class="bg-primary text-white rounded">
+                    <th scope="col">Name</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">Months Employed</th>
+                    <th scope="col">Monthly Income ($)</th>
+                    <th scope="col">Total Billed ($)</th>
+                </tr>
+            </thead>
+            <tbody class="empTable">
+
+            </tbody>
+        </table>
+
+        <div class="card border border-secondary">
+
+            <h5 class="card-header bg-primary text-white font-weight-bold py-4">
+                Employment Info
+            </h5>
+
+            <div class="card-body px-lg-5 pt-3">
+
+                <form>
+                    <div class="form-group">
+                        <label for="trainName">Employee Name</label>
+                        <input class="form-control" id="empName" placeholder="Employee Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="destination">Position</label>
+                        <input class="form-control" id="position" placeholder="Position">
+                    </div>
+                    <div class="form-group">
+                        <label for="trainTime">Start Date (DD/MM/YYYY - ex. 01/01/1989)</label>
+                        <input class="form-control" id="startDate" placeholder="DD/MM/YYYY">
+                    </div>
+                    <div class="form-group">
+                        <label for="frequency">Monthly Rate</label>
+                        <input class="form-control" id="monthRate" placeholder="Monthly Rate">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="empSubmit">Submit</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="Employee_Tracker.js"></script>
+</body>
+
+</html>
