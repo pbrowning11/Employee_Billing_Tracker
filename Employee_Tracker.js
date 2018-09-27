@@ -24,18 +24,32 @@ $("#empSubmit").on("click", function () {
         monthRate: monthRate,
     })
 
+    $("#empName").val("");
+    $("#position").val("");
+    $("#startDate").val("");
+    $("#monthRate").val("");
+
 })
 
 database.ref().on("child_added", function (snapshot) {
 
-    // var input = snapshot.val();
+
+    var startDate = snapshot.val().date;
+    var months = moment().diff(startDate, "months");
+    var monthRate = snapshot.val().monthRate;
+    var totalBill = months * monthRate;
 
     var newRow = $("<tr>")
     var nameCol = $("<td>").text(snapshot.val().name);
     var roleCol = $("<td>").text(snapshot.val().role);
-    var dateCol = $("<td>").text(snapshot.val().date);
+    var dateCol = $("<td>").text(startDate);
+    var monthCol = $("<td>").text(months);
+    var incomeCol = $("<td>").text(monthRate)
+    var billCol = $("<td>").text(totalBill);
+
+
     //appending to newly created column and row
-    newRow.append(nameCol, roleCol, dateCol);
+    newRow.append(nameCol, roleCol, dateCol, monthCol, incomeCol, billCol);
     $(".empTable").append(newRow);
 
 }, function (errorObject) {
